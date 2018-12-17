@@ -9,6 +9,9 @@ Vue.config.productionTip = false
 import $fixedInput from '@/common/fixedInput.js';
 Vue.use($fixedInput);
 
+//注入全局组件
+import '@/components/install.js';
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
