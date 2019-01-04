@@ -1,11 +1,11 @@
 <template>
 	<section>
-		<mt-popup v-model="isShowPopup" position="bottom" class="smart_popup_box">
+		<mt-popup v-model="isShow" position="bottom" class="smart_popup_box">
 			<div class="popup_handle_row">
 				<span class="popup_cancle" @click="close()">清 空</span>
 				<span class="popup_title">请选择人员类型</span>
 				<span class="popup_confirm" @click="confirm()">确定</span>
-				<div v-if="isShowPopup && dataList.length == 0" class="slot_list_null">暂无数据</div>
+				<div v-if="isShow && dataList.length == 0" class="slot_list_null">暂无数据</div>
 			</div>
 			<picker :data='dataList' :columns="columns" v-model='value'></picker>
 		</mt-popup>
@@ -18,7 +18,15 @@
 		components: {
 			Picker
 		},
+		model: {
+			prop: 'visible',
+			event: "popupListener"
+		},
 		props: {
+			visible: {
+				type: Boolean,
+				default: false
+			},
 			//picker选择项
 			dataList: {
 				type: Array,
@@ -37,7 +45,15 @@
 		},
 		data() {
 			return {
-				isShowPopup: false
+				isShow: false
+			}
+		},
+		watch:{
+			visible(){
+				this.isShow = this.visible;
+			},
+			isShow(){
+				this.$emit('popupListener', this.isShow)
 			}
 		},
 		created() {
@@ -47,15 +63,15 @@
 			//确定：需要获取什么参数待续...
 			confirm() {
 				this.$emit('confirmPopup', this.value);
-				this.isShowPopup = false;
+				this.isShow = false;
 			},
 			//取消：需要获取什么参数待续...
 			close() {
 				this.$emit('cancelPopup', null);
-				this.isShowPopup = false;
+				this.isShow = false;
 			},
 			showPopup(){
-				this.isShowPopup = true;
+				this.isShow = true;
 			}
 		}
 	}
