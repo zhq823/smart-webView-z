@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组求和</title>
+	</head>
+
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		var values = [1, 2, 3, 4, 5];
+		var sum = values.reduce(function(prev, cur, index, array) {
+			return prev + cur;
+		});
+		alert(sum); //15
+		
+		//reduceRight方法类似，只不过计算顺序反向
+		
+		
+		//数组求最大值
+		let spans_h = [50, 53, 57, 21]
+		let max_h = Math.max.apply(null, spans_h);
+		console.log(max_h); //57
+	</script>
+
+</html>

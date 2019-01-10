@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数的深入理解</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		window.color = 'red'
+		function color1() {
+			return {
+				color: 'blue'
+			};
+		}
+		
+		function color2() {
+			console.log(this)
+			console.log(this.color)
+		}
+		
+		color2.apply(this);
+		color2.call(color1());
+		color2.bind(window)();
+		
+		console.log(Object.prototype.toString.call(12));
+		console.log(Array.prototype.toString.call(12));
+		console.log(function(){}.prototype.toString.call(12));
+		
+		console.log(Object.prototype.toString.apply(12));
+		console.log(Array.prototype.toString.apply(12));
+		console.log(function(){}.prototype.toString.apply(12));
+		
+		console.log(Object.prototype.toString.bind(12)());
+		console.log(Array.prototype.toString.bind(12)());
+		console.log(Number.prototype.toString.bind(12)());
+		console.log(String.prototype.toString.bind('12')());
+	</script>
+</html>

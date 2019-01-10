@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>递归函数</title>
+	</head>
+
+	<body>
+
+	</body>
+	<script>
+		const toArray = function(currentArray, nodes, i) {
+			if(!nodes || nodes.length === 0) {
+				return false;
+			}
+			nodes.map((ele, index) => {
+				currentArray.push({
+					aa: ele.aa,
+					bb: ele.bb,
+					index: i + index + 1
+				})
+				toArray(currentArray, ele.child, currentArray.length)
+			})
+		}
+		var arr = [{
+			aa: 'aa1',
+			bb: 'bb1',
+			child: [{
+				aa: 'aa2',
+				bb: 'bb2'
+			}, {
+				aa: 'aa3',
+				bb: 'bb3',
+				child: [{
+					aa: 'aa4',
+					bb: 'bb4',
+					child: [{
+						aa: 'aa5',
+						bb: 'bb5'
+					}]
+				}]
+			}]
+		}];
+		var newArray = []
+		toArray(newArray, arr, 0);
+		console.log(newArray);
+		
+		
+		const toArray2 = function(newArray,oldArray){
+			if(!oldArray || oldArray.length<1){
+				return false;
+			}
+			oldArray.map((ele)=>{
+				newArray.push({
+					aa:ele.aa,
+					bb:ele.bb
+				})
+				toArray2(newArray,ele.children)
+			})
+		}
+		var curArray = [{
+			aa:'a1',
+			bb:'b1'
+		},{
+			aa:'a2',
+			bb:'b2',
+			children:[{
+				aa:'a21',
+				bb:'b21',
+				children:[{
+					aa:'a211',
+					bb:'b211',
+					children:[{
+						aa:'a2111',
+						bb:'b2111'
+					}]
+				}]
+			}]
+		},{
+			aa:'a3',
+			bb:'b3'
+		}]
+		var abc = [];
+		toArray2(abc,curArray);
+		console.log(abc)
+	</script>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组查询</title>
+	</head>
+	<body>
+		<button onclick="clickMe()">焦点管理</button>
+	</body>
+	<script>
+		
+		var list = [1,2,3,4,5];
+		function contain(value){
+			return !!~list.indexOf(value); // ~二进制的按位取反 【反码】源码。补码
+			//return list.indexOf(value) > -1;
+		}
+		console.log(contain(1))
+		
+		function clickMe(){
+			console.log(document.activeElement.tagName)
+		}
+		console.log(document.readyState);
+		window.onload = function(){
+			if(document.readyState == 'complete'){
+				console.log('complete');
+			}else{
+				console.log('loading');
+			}
+		}
+		
+	</script>
+</html>
