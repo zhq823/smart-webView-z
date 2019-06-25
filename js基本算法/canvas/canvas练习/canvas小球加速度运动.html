@@ -28,6 +28,10 @@
 			if( ball.y >= 450 - ball.r) {
 				ball.y = 450 - ball.r;
 				ball.vy = -0.5*ball.vy;
+				console.log(ball.vy)
+				if((ball.vy>0 && ball.vy<=6.5) || (ball.vy<0 && -ball.vy<=6.5)){
+					ball.vy = 0;
+				}
 			}
 			if(ball.x <= 0){
 				ball = { x:512, y:100, r:20, g:4, vx:-4, vy:-4, color:"red" };

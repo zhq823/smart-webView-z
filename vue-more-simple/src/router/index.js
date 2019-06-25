@@ -42,6 +42,10 @@ export default new Router({
 			path:'/dragCell',
 			name: 'dragCell',
 			component: ()=> import('@/pages/dragCell/dragCell')
+		},{
+			path:'/ReturnRecord',
+			name: 'ReturnRecord',
+			component: ()=> import('@/pages/ReturnRecord')
 		}]
 	}]
 })

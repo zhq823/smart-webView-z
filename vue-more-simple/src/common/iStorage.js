@@ -17,7 +17,7 @@ export class iStorage {
 		sessionStorage.removeItem(key);
 	}
 
-	static clear() {
+	static clean() {
 		sessionStorage.clear();
 	}
 }
