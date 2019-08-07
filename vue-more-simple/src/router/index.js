@@ -34,18 +34,6 @@ export default new Router({
 			path:'/scrollTest',
 			name: 'scrollTest',
 			component: ()=> import('@/pages/scrollTest')
-		},{
-			path:'/viewer2',
-			name: 'viewer2',
-			component: ()=> import('@/pages/viewer2')
-		},{
-			path:'/dragCell',
-			name: 'dragCell',
-			component: ()=> import('@/pages/dragCell/dragCell')
-		},{
-			path:'/ReturnRecord',
-			name: 'ReturnRecord',
-			component: ()=> import('@/pages/ReturnRecord')
 		}]
 	}]
 })
