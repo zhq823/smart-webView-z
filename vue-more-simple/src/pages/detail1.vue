@@ -3,7 +3,6 @@
 		<mt-header title="详情页1" class="header_position">
 			<mt-button slot="left" icon="back" @click.native="detail1GoBack()"></mt-button>
 		</mt-header>
-		<mt-radio class="mtRadio" v-model="hasDrinksTxt" :options="options"></mt-radio>
 		<div class="next" @click="next()">下一页</div>
 		<loading @postMessage="postMessage"></loading>
 	</section>
@@ -14,8 +13,7 @@
 	export default {
 		data() {
 			return {
-				hasDrinksTxt: "是",
-				options: ["是", "否"]
+
 			}
 		},
 		created() {
@@ -56,28 +54,5 @@
 		color: white;
 		line-height: 0.44rem;
 		margin-top: 2rem;
-	}
-</style>
-
-<style>
-	.mtRadio {}
-	
-	.mtRadio .mint-cell {
-		display: inline-block;
-		width: 50%;
-		border: none;
-		background-attachment: fixed !important;
-	}
-	
-	.mtRadio .mint-radiolist-title {
-		display: none;
-	}
-	
-	.mtRadio .mint-radio-label {
-		font-size: 0.14rem !important;
-	}
-	.mint-radio-input:checked + .mint-radio-core {
-		border-color: #D7290F;
-		background-color: #D7290F;
 	}
 </style>

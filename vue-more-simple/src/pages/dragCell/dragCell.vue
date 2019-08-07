@@ -78,7 +78,6 @@
 			margin-left: 0px;
 			position: relative;
 			transition: all 0.3s ease-out;
-			border: 1px solid red;
 			.content {
 				width: 100vw;
 				height: 100%;
