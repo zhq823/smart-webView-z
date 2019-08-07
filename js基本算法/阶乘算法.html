@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>阶乘算法</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		//包含了递归算法
+		function sum(num){
+			if(num <= 1){
+				return 1;
+			} else {
+				return num * sum(num - 1);
+//				return num * arguments.callee(num - 1); //arguments.callee等价于sum函数的对象指针，函数名等价于该函数的指针
+			}
+		}
+		console.log(sum(3)) //3 * 2 * 1 = 6
+		
+	</script>
+</html>

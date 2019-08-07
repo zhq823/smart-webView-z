@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组查询</title>
+		<style type="text/css">
+			li{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button class="btn" onclick="clickMe()">焦点管理</button>
+		<input type="" name="" id="" value="123"  onkeydown="aaa()"/>
+		<ul onclick="eventTarget(event)">
+			<li class="active1">1</li>
+			<li class="active2">2</li>
+			<li class="active3">3</li>
+			<li class="active4">4</li>
+		</ul>
+	</body>
+	<script>
+		function aaa(){
+			console.log(123)
+		}
+		function eventTarget(event){
+			console.log(event.eventPhase)
+			event.stopImmediatePropagation()
+			console.log(event.target.className == 'active1')
+		}
+		
+		var list = [1, 2, 3, 4, 5];
+
+		function contain(value) {
+			return !!~list.indexOf(value); // ~二进制的按位取反 【反码】源码。补码
+			//return list.indexOf(value) > -1;
+		}
+		//console.log(contain(1))
+
+		function clickMe() {
+			console.log(this === window)
+			console.log(document.activeElement.tagName)
+		}
+		
+		document.getElementsByClassName('btn')[0].onclick = function(){
+			console.log(this);
+			console.log(event);
+			console.log(event.cancelable);
+		}
+		
+		
+		//console.log(document.readyState);
+		window.onload = function() {
+			if(document.readyState == 'complete') {
+				//console.log('complete');
+			} else {
+				//console.log('loading');
+			}
+		}
+		
+		var curMethod = null;
+		function getBoundingClientRect(element) {
+			curMethod = arguments.callee;
+		}
+		getBoundingClientRect();
+		//console.log(curMethod.prototype === getBoundingClientRect.prototype)
+	</script>
+
+</html>

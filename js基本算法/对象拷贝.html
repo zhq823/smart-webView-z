@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>对象拷贝</title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		// `assign` 函数会忽略原型链上的属性。
+		//把源对象(sources)的属性分配到目标对象(object)，源对象会从左往右地调用，后面对象的属性会覆盖前面的。
+//		Object.assign({},{a:1},{a:1,b:2});
+//		Object.merge({},{a:1},{a:1,b:2})
+//		Object.extend({},{a:1},{a:1,b:2})
+		//console.log(Object.assign)
+		//相同之处
+			//都可以用来合并对象
+			//都会修改原来的对象 (如果原来的对象是作为函数的第一个参数的话)
+			
+		//不同之处
+			//assign 函数不会处理原型链上的属性，也不会合并相同的属性，而是用后面的属性值覆盖前面的属性值
+			//extend 
+				//3.x 版本中和 assign 一样
+				//4.x 版本中会合并原型链上的属性
+			//merge 遇到相同属性名的时候，如果属性值是纯对象或集合的时候，会合并属性值
+		
+	</script>
+
+</html>

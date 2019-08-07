@@ -19,6 +19,11 @@ import { iStorage } from '@/common/iStorage.js';
 import smartFixInput from 'smart-fixinput';
 Vue.use(smartFixInput)
 
+//v-viewer 图片查看插件
+import 'viewerjs/dist/viewer.css';
+import Viewer from 'v-viewer';
+Vue.use(Viewer)
+
 Vue.prototype.$iStorage = iStorage;
 Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue();
 iStorage.set('tenant_code', 'lilly')
@@ -35,8 +40,10 @@ import nativeJsBridge from '@/controllers/nativeJsBridge.js';
 Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+	el: '#app',
+	router,
+	components: {
+		App
+	},
+	template: '<App/>'
 })

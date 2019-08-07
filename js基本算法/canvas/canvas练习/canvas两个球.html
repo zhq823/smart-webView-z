@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas两个球</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1024" height="400" style="border: 1px solid red;margin: 50px auto;"></canvas>
+	</body>
+	<script>
+		var ball = { x:400, r:50, g:6, vx:0, color:"red" };
+		var ball2 = { x:600, r:50, g:-6, vx:0, color:"blue" };
+		window.onload = function() {
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			
+			setInterval(function(){
+				render(context);
+				update(ball);
+				update(ball2);
+			},50)
+		}
+		
+		function update(_ball) {
+			_ball.x += _ball.vx;
+			if(_ball.x >= 400 && _ball.x <= 500){
+				_ball.g = 6;
+			}
+			if(_ball.x >= 500 && _ball.x <= 600){
+				_ball.g = -6;
+			}
+			if(_ball.x == 400 || _ball.x == 600){
+				_ball.vx = 0;
+			}
+			_ball.vx += _ball.g;
+		}
+		
+		function render(cxt){
+			cxt.clearRect(0,0,cxt.canvas.width,cxt.canvas.height);
+			
+			cxt.beginPath();
+			cxt.arc(ball.x, 100, ball.r, 0, 2*Math.PI);
+			cxt.fillStyle = ball.color;
+			cxt.fill();
+			cxt.closePath();
+			
+			cxt.beginPath();
+			cxt.fillStyle = ball2.color;
+			cxt.arc(ball2.x, 100, ball2.r, 0, 2*Math.PI);
+			cxt.fill();
+			cxt.closePath();
+		}
+		
+		
+	</script>
+</html>
