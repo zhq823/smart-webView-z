@@ -19,6 +19,15 @@
 			}
 		},
 		created() {
+//			navigator.vibrate = navigator.vibrate
+//             || navigator.webkitVibrate
+//             || navigator.mozVibrate
+//             || navigator.msVibrate;
+//          navigator.vibrate([500, 300, 400,300])
+			if("vibrate" in navigator) {
+				window.navigator.vibrate(20);
+			}
+//			window.navigator.vibrate(200);
 			this.setRouteListeners('detail1GoBack');
 			this.$root.$eventHub.$on("detail1GoBack", (data) => {
 				this.detail1GoBack()
