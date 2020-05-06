@@ -5,6 +5,9 @@ import store from "./store";
 import "./registerServiceWorker";
 
 Vue.config.productionTip = false;
+import optionalChaining from '@/controllers/optionalChaining';
+
+Vue.prototype.$$ = optionalChaining;
 
 new Vue({
   router,
